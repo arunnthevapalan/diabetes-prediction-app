@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## Getting Started
-Open the terminal in you machine and run the following command to access the web application in you localhost.
+Open the terminal in you machine and run the following command to access the web application in your localhost.
 ```bash
 streamlit run app.py
 ```
