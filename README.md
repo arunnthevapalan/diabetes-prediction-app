@@ -20,6 +20,12 @@ Installation with pip:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Getting Started
+Open the terminal in you machine and run the following command to access the web application in you localhost.
+```bash
+streamlit run app.py
+```
 ## Files
 - diabetes_prediction_pipeline.ipynb : Jupyter Notebook with all the workings including pre-processing, modelling and inference.
 - app.py : Streamlit App script
