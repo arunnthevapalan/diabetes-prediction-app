@@ -26,6 +26,13 @@ Open the terminal in you machine and run the following command to access the web
 ```bash
 streamlit run app.py
 ```
+
+## Run on Docker
+Alternatively you can build the Docker container and access the application at `localhost:8051` on your browser.
+```bash
+docker build --tag app:1.0 .
+docker run --publish 8051:8051 -it app:1.0
+```
 ## Files
 - diabetes_prediction_pipeline.ipynb : Jupyter Notebook with all the workings including pre-processing, modelling and inference.
 - app.py : Streamlit App script
