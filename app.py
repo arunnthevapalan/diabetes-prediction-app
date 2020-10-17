@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 from PIL import Image
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load(scaler_path, model_path):
     sc = joblib.load(scaler_path)
     model = joblib.load(model_path)
