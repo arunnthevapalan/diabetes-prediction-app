@@ -1,4 +1,4 @@
-# Diabetes Prediction App
+# Diabetes Prediction App [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/arunnthevapalan/diabetes-prediction-app/app.py)
 Streamlit Web App to predict the onset of diabetes based on diagnostic measures. 
 
 ## Data
