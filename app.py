@@ -1,42 +1,56 @@
-import streamlit as st
-import joblib
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import streamlit as st
+import numpy as np
+import urllib
 from PIL import Image
 
-@st.cache(allow_output_mutation=True)
-def load(scaler_path, model_path):
-    sc = joblib.load(scaler_path)
-    model = joblib.load(model_path)
-    return sc , model
+urllib.request.urlretrieve("https://www.niddk.nih.gov/-/media/Images/Health-Information/Diabetes/diabetes-monitor-fruits-vegetables-small_597x347.png", "car_sample1.png")
+img = Image.open("car_sample1.png").convert('RGB')
+img = img.resize((700,400))
+st.image(img)
 
-def inference(row, scaler, model, feat_cols):
-    df = pd.DataFrame([row], columns = feat_cols)
-    X = scaler.transform(df)
-    features = pd.DataFrame(X, columns = feat_cols)
-    if (model.predict(features)==0):
-        return "This is a healthy person!"
-    else: return "This person has high chances of having diabetics!"
+url = "https://raw.githubusercontent.com/joeyaj1302/datasets/master/diabetes.csv"
+data = pd.read_csv(url, error_bad_lines=False)
 
-st.title('Diabetes Prediction App')
-st.write('The data for the following example is originally from the National Institute of Diabetes and Digestive and Kidney Diseases and contains information on females at least 21 years old of Pima Indian heritage. This is a sample application and cannot be used as a substitute for real medical advice.')
-image = Image.open('data/diabetes_image.jpg')
-st.image(image, use_column_width=True)
-st.write('Please fill in the details of the person under consideration in the left sidebar and click on the button below!')
+st.title("Diabetes Predicton by machine learning")
 
-age =           st.sidebar.number_input("Age in Years", 1, 150, 25, 1)
-pregnancies =   st.sidebar.number_input("Number of Pregnancies", 0, 20, 0, 1)
-glucose =       st.sidebar.slider("Glucose Level", 0, 200, 25, 1)
-skinthickness = st.sidebar.slider("Skin Thickness", 0, 99, 20, 1)
-bloodpressure = st.sidebar.slider('Blood Pressure', 0, 122, 69, 1)
-insulin =       st.sidebar.slider("Insulin", 0, 846, 79, 1)
-bmi =           st.sidebar.slider("BMI", 0.0, 67.1, 31.4, 0.1)
-dpf =           st.sidebar.slider("Diabetics Pedigree Function", 0.000, 2.420, 0.471, 0.001)
+st.header("Choose the parameters like age , BMI, Glucose , etc")
 
-row = [pregnancies, glucose, bloodpressure, skinthickness, insulin, bmi, dpf, age]
+# Storing the default mean values in a dictionary:
 
-if (st.button('Find Health Status')):
-    feat_cols = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+#defining the inputs and outputs
+x = data.iloc[:,:-1]
+y = data.iloc[:,-1]
+reg = LogisticRegression()
+reg.fit(x,y)
+#taking input data from users
 
-    sc, model = load('models/scaler.joblib', 'models/model.joblib')
-    result = inference(row, sc, model, feat_cols)
-    st.write(result)
+Pregnancies= 0
+SkinThickness = 20
+DiabetesPedigreeFunction = 0.47
+Age = st.slider("select your age from the slider :",  25, 100)
+BloodPressure = st.slider("Select your diastolic blood pressure from the slider :" ,60, 122)
+BMI = st.slider("Select your BMI from the slider :" ,20, 50)
+Insulin = st.slider("Select your insulin level from the slider :" ,30, 800)
+Glucose = st.slider("Select your Blood glucose level from the slider :" ,80, 200)
+if st.checkbox("Do you want to input other related data like pregnancy,skin thickness and DiabetesPedigreeFunction ?"):
+    Pregnancies = st.sidebar.selectbox("Select the number of Pregnancies you had from the drop down box :",[1,2,3,4,5,6])
+    SkinThickness = st.sidebar.slider("Select your skin thickness in mm :",1.5,9.9)*10
+    DiabetesPedigreeFunction = st.sidebar.slider("Select your tested DiabetesPedigreeFunction :",0.07,2.42)
+
+x1 = np.array([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
+
+#st.write(x1)
+
+#st.write(Age,BMI,Insulin,BloodPressure,Glucose)
+
+preds = reg.predict(x1)
+
+if preds == 1:
+    st.header("You are more prone to diabetes")
+else:
+    st.header("You are probably safe from diabetes")
+
+
