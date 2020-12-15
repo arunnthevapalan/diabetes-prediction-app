@@ -40,12 +40,12 @@ docker run --publish 8051:8051 -it app:1.0
 - data/ : source data
 
 ## Summary
-This repository acts as a guide to [this blog post] where I talk about how I use Streamlit to build Machine Learning Applications quickly. Here we use a real-world example of predicting if a patient has diabetes and built a machine learning model. A Streamlit App was then built using a step-by-step approach in this project.
+This repository acts as a guide to [this blog post] where I talk about how I use Streamlit to build Machine Learning Applications quickly. Here we use a real-world example of predicting if a patient has diabetes and built a machine learning model. A Streamlit App was then built using a step-by-step approach in this project. and also made other projects with the help of streamlit,django,flask to deploy the machine learning model so that interviews when see your hardwork they impress from your project.
 
 ## Acknowledgements
 
-[Kaggle](https://kaggle.com/), for providing the data for the machine learning pipeline.  
-[Streamlit](https://www.streamlit.io/), for the open-source library for rapid prototyping.
+[Kaggle](https://kaggle.com/)  for providing the data for the machine learning pipeline.  
+[Streamlit](https://www.streamlit.io/) for the open-source library for rapid prototyping.
 
 
 
