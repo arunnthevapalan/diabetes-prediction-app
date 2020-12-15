@@ -6,7 +6,6 @@ Streamlit Web App to predict the onset of diabetes based on diagnostic measures.
 The data for the following example is originally from the [National Institute of Diabetes and Digestive and Kidney Diseases](https://www.niddk.nih.gov/) and is [available on Kaggle.](https://www.kaggle.com/uciml/pima-indians-diabetes-database) The data contains information on females at least 21 years old of Pima Indian heritage.
 Since the data has been added to the `data/` directory, cloning this repository would suffice.
 ## Pre-requisites
-
 The project was developed using python 3.6.7 with the following packages.
 - Pandas
 - Numpy
