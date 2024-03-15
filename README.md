@@ -11,7 +11,7 @@ The project was developed using python 3.6.7 with the following packages.
 - Pandas
 - Numpy
 - Scikit-learn
-- Pandas-profiling
+- Pandas-profiling(renamed as ydata_profiling)
 - Joblib
 - Streamlit
 
@@ -28,7 +28,7 @@ streamlit run app.py
 ```
 
 ## Run on Docker
-Alternatively you can build the Docker container and access the application at `localhost:8051` on your browser.
+Alternatively, you can build the Docker container and access the application at `localhost:8051` on your browser.
 ```bash
 docker build --tag app:1.0 .
 docker run --publish 8051:8051 -it app:1.0
