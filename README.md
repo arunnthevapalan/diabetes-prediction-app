@@ -1,5 +1,5 @@
 # Diabetes Prediction App [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/arunnthevapalan/diabetes-prediction-app/app.py)
-Streamlit Web App to predict the onset of diabetes based on diagnostic measures. 
+Streamlit Web App to predict the onset of diabetes based on diagnostic measures. For a walkthrough of the entire process of building the machine learning web application, [have a look at the accompanying Medium article published in Towards AI.](https://pub.towardsai.net/how-i-build-machine-learning-apps-in-hours-a1b1eaa642ed)
 
 ## Data
 
@@ -7,7 +7,7 @@ The data for the following example is originally from the [National Institute of
 Since the data has been added to the `data/` directory, cloning this repository would suffice.
 ## Pre-requisites
 
-The project was developed using python 3.6.7 with the following packages.
+The project was developed using Python 3.6.7 with the following packages.
 - Pandas
 - Numpy
 - Scikit-learn
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## Getting Started
-Open the terminal in you machine and run the following command to access the web application in your localhost.
+Open the terminal in your machine and run the following command to access the web application in your localhost.
 ```bash
 streamlit run app.py
 ```
@@ -41,7 +41,7 @@ docker run --publish 8051:8051 -it app:1.0
 - data/ : source data
 
 ## Summary
-This repository acts as a guide to [this blog post] where I talk about how I use Streamlit to build Machine Learning Applications quickly. Here we use a real-world example of predicting if a patient has diabetes and built a machine learning model. A Streamlit App was then built using a step-by-step approach in this project.
+This repository acts as a guide to [this blog post] where I talk about how I use Streamlit to build Machine Learning Applications quickly. Here we use a real-world example of predicting if a patient has diabetes and build a machine learning model. A Streamlit App was then built using a step-by-step approach in this project.
 
 ## Acknowledgements
 
